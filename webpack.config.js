@@ -1,14 +1,15 @@
 const path =require(`path`);
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 module.exports = {
     // モードの設定
     mode: 'development',
-    entry: './src/index.js',
+    entry: './src/js/main.js',
     output: {
         path: path.resolve(__dirname, './dist'),
-        filename: 'main.js',
+        filename: 'js/main.js',
     },
     module: {
         rules:[
@@ -26,10 +27,13 @@ module.exports = {
         ],
     },
     plugins: [
-        new MiniCssExtractPlugin(),
+        new MiniCssExtractPlugin({
+            filename: './css/main.css',
+        }),
         new HtmlWebpackPlugin({
             // Also generate a test.html
-            template: './src/index.html',
+            template: './src/templates/index.html',
         }),
+        new CleanWebpackPlugin(),
     ],
 }
