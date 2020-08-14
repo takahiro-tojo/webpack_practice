@@ -1,3 +1,16 @@
+.footer {
+  background-color: #ddd; }
+
 body {
-    color: aqua;
-}
+  color: lightblue; }
+  body .purple {
+    color: purple; }
+
+.content {
+  margin-right: 16px; }
+  .content .title, .content .title-lg {
+    font-size: 24px;
+    color: orange; }
+  .content .title-lg {
+    font-size: 32px; }
+
