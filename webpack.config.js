@@ -1,4 +1,6 @@
 const path =require(`path`);
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
     // モードの設定
@@ -14,7 +16,7 @@ module.exports = {
                 test: /\.css/,
                 use: [
                     {
-                        loader: 'style-loader',
+                        loader: MiniCssExtractPlugin.loader,
                     },
                     {
                         loader: 'css-loader',
@@ -23,4 +25,11 @@ module.exports = {
             },
         ],
     },
+    plugins: [
+        new MiniCssExtractPlugin(),
+        new HtmlWebpackPlugin({
+            // Also generate a test.html
+            template: './src/index.html',
+        }),
+    ],
 }
