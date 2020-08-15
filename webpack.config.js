@@ -10,7 +10,7 @@ module.exports = {
     entry: './src/js/main.js',
     output: {
         path: path.resolve(__dirname, './dist'),
-        filename: 'js/main.js',
+        filename: 'js/[name]-[hash].js',
     },
     module: {
         rules: [
@@ -60,7 +60,7 @@ module.exports = {
                 loader: 'file-loader',
                 options: {
                   esModule: false,
-                  name: 'images/[name].[ext]',
+                  name: 'images/[name]-[hash].[ext]',
                   publicPath: '/',
                 },
               },
@@ -93,7 +93,7 @@ module.exports = {
       },
       plugins: [
         new MiniCssExtractPlugin({
-          filename: './stylesheets/main.css',
+          filename: './stylesheets/[name]-[hash].css',
         }),
         new HtmlWebpackPlugin({
           template: './src/templates/index.pug',
